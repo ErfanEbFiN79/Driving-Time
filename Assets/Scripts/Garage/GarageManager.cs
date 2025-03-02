@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 public class GarageManager : MonoBehaviour
@@ -13,22 +10,30 @@ public class GarageManager : MonoBehaviour
     [Header("Panel")] 
     [SerializeField] private GameObject panel;
     [SerializeField] private KeyCode key;
+    [SerializeField] private string nameGarage;
     private bool weIn;
     
     
     [Header("Car Rotate Panel")] 
     [SerializeField] private GameObject rotatePanel;
-    [SerializeField] private float speedRotate;
+    [SerializeField] private int speedRotate;
     [SerializeField] private bool handRota;
     [SerializeField] private int maxSpeedRotate;
     [SerializeField] private int minSpeedRotate;
+    [SerializeField] private TMP_Text textSpeed;
 
     [Header("Info Panel")] 
     [SerializeField] private TMP_Text infoText;
-    
-    // shaere info
     public bool panelState {  get; private set; }
     public GameObject panelGet { get; private set; }
+
+    [Header("Cars")]
+    [SerializeField] private GameObject[] cars;
+    [SerializeField] private TMP_Text textCar;
+    private int _carSelector;
+    // shaere info
+    
+
     
     
     #endregion
@@ -43,6 +48,9 @@ public class GarageManager : MonoBehaviour
     private void Start()
     {
         panelGet = panel;
+        LoadData();
+        print(_carSelector);
+        ManageCarSelector();
     }
 
     void Update()
@@ -60,7 +68,11 @@ public class GarageManager : MonoBehaviour
 
     public void PlusSpeedRotate() => PlusSpeedRotateAction();
     public void DownSpeedRotate() => DownSpeedRotateAction();
-    public void DeActivePanel() => DeActivePanelAction();
+
+    public void GoChangeCar() => GoChangeCarAction();
+    public void BackChangeCar() => BackChangeCarAction();
+
+    
 
     #endregion
     
@@ -78,8 +90,8 @@ public class GarageManager : MonoBehaviour
     {
         if (speedRotate < maxSpeedRotate)
         {
-            print(speedRotate);
             speedRotate++;
+            textSpeed.text = speedRotate.ToString();
         }
 
     }
@@ -88,8 +100,8 @@ public class GarageManager : MonoBehaviour
     {
         if (speedRotate > minSpeedRotate)
         {
-            print(speedRotate);
             speedRotate--;
+            textSpeed.text = speedRotate.ToString();
         }
     }
 
@@ -97,8 +109,31 @@ public class GarageManager : MonoBehaviour
     {
         panel.SetActive(false);
     }
+
+
     
     #endregion
+
+    private void GoChangeCarAction()
+    {
+        _carSelector++;
+        if (_carSelector > cars.Length )
+        {
+            _carSelector = cars.Length;
+        }
+        ManageCarSelector();
+    }
+    
+    private void BackChangeCarAction()
+    {
+        _carSelector--;
+        if (_carSelector < 0)
+        {
+            _carSelector = 0;
+        }
+        ManageCarSelector();
+
+    }
 
     #region Find System
 
@@ -106,6 +141,7 @@ public class GarageManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            LoadData();
             weIn = true;
         }
 
@@ -115,6 +151,7 @@ public class GarageManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SaveData();
             weIn = false;
         }
     }
@@ -123,6 +160,7 @@ public class GarageManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SaveData();
             weIn = true;
         }
     }
@@ -149,6 +187,41 @@ public class GarageManager : MonoBehaviour
         
     }
 
+    private void ManageCarSelector()
+    {
+        textCar.text = _carSelector.ToString();
+
+        for (int i = 0; i < cars.Length; i++)
+        {
+            if (i != _carSelector)
+            {
+                cars[i].SetActive(false);
+            }
+            else
+            {
+                cars[i].SetActive(true);
+            }
+        }
+        
+        
+        
+    }
+
+    #endregion
+
+    #region Save and Load
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(nameGarage + "LevelRotate", speedRotate);
+        PlayerPrefs.SetInt(nameGarage + "CarCount", _carSelector);
+    }
+
+    private void LoadData()
+    {
+        speedRotate = PlayerPrefs.GetInt(nameGarage + "LevelRotate");
+        _carSelector = PlayerPrefs.GetInt(nameGarage + "CarCount");
+    }
     #endregion
     
 }

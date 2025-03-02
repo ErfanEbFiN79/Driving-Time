@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform viewPoint;
     [SerializeField] private Joystick joystick;
     [SerializeField] private Joystick joystickRotate;
+    [SerializeField] private Image[] change;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private bool invertLook;
     [SerializeField] private Vector3 offsetCam;
@@ -69,11 +71,22 @@ public class PlayerController : MonoBehaviour
 
         if (GarageManager.instance.panelState)
         {
-            joystickRotate.gameObject.SetActive(false);
+            joystickRotate.gameObject.transform.localScale = new Vector3(1, 1, 1);
+            joystickRotate.gameObject.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(1700, 200);
+            foreach (Image img in change)
+            {
+                img.color = new Color(1, 1, 1, 1);
+            }
             // transform.LookAt(GarageManager.instance.panelGet.transform);
         }
         else
         {
+            joystickRotate.gameObject.transform.localScale = new Vector3(4,4,4);
+            joystickRotate.gameObject.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(1474, 471);
+            foreach (Image img in change)
+            {
+                img.color = new Color(1, 1, 1, 0);
+            }
             if (!joystickRotate.gameObject.activeInHierarchy)
             {
                 joystickRotate.gameObject.SetActive(true);

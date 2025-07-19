@@ -7,12 +7,8 @@ public class GarageManager : MonoBehaviour
     
     #region Variables
 
-    [Header("Panel")] 
-    [SerializeField] private GameObject panel;
-    [SerializeField] private KeyCode key;
+    [Header("Base")]
     [SerializeField] private string nameGarage;
-    private bool weIn;
-    
     
     [Header("Car Rotate Panel")] 
     [SerializeField] private GameObject rotatePanel;
@@ -47,17 +43,15 @@ public class GarageManager : MonoBehaviour
 
     private void Start()
     {
-        panelGet = panel;
         LoadData();
         print(_carSelector);
         ManageCarSelector();
+        ManageUi();
     }
 
     void Update()
     {
         RotatePanelAction();
-        ManagePanelSystem();
-        panelState = panel.activeInHierarchy;
     }
 
     #endregion
@@ -82,6 +76,7 @@ public class GarageManager : MonoBehaviour
     {
         if (!handRota)
         {
+            print(speedRotate);
             rotatePanel.transform.Rotate(0,speedRotate*Time.deltaTime,0);
         }
     }
@@ -92,7 +87,11 @@ public class GarageManager : MonoBehaviour
         {
             speedRotate++;
             textSpeed.text = speedRotate.ToString();
+            SaveData();
+            LoadData();
+            ManageUi();
         }
+
 
     }
 
@@ -102,13 +101,12 @@ public class GarageManager : MonoBehaviour
         {
             speedRotate--;
             textSpeed.text = speedRotate.ToString();
+            SaveData();
+            LoadData();
+            ManageUi();
         }
     }
-
-    private void DeActivePanelAction()
-    {
-        panel.SetActive(false);
-    }
+    
 
 
     
@@ -122,6 +120,9 @@ public class GarageManager : MonoBehaviour
             _carSelector = cars.Length;
         }
         ManageCarSelector();
+        SaveData();
+        LoadData();
+        ManageUi();
     }
     
     private void BackChangeCarAction()
@@ -132,60 +133,15 @@ public class GarageManager : MonoBehaviour
             _carSelector = 0;
         }
         ManageCarSelector();
+        SaveData();
+        LoadData();
+        ManageUi();
 
-    }
-
-    #region Find System
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            LoadData();
-            weIn = true;
-        }
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            SaveData();
-            weIn = false;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            SaveData();
-            weIn = true;
-        }
     }
     
-    #endregion
 
     #region Manager
 
-    private void ManagePanelSystem()
-    {
-        if (weIn)
-        {
-            panel.SetActive(true);
-            if (Input.GetKeyDown(key))
-            {
-                panel.SetActive(true);
-            }
-        }
-        else
-        {
-            panel.SetActive(false);
-            infoText.gameObject.SetActive(false);
-        }
-        
-    }
 
     private void ManageCarSelector()
     {
@@ -202,9 +158,12 @@ public class GarageManager : MonoBehaviour
                 cars[i].SetActive(true);
             }
         }
-        
-        
-        
+    }
+
+    private void ManageUi()
+    {
+        textCar.text = _carSelector.ToString();
+        textSpeed.text = speedRotate.ToString();
     }
 
     #endregion

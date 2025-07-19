@@ -1,18 +1,20 @@
+using System;
 using UnityEngine;
 
-public class CarControllV1 : MonoBehaviour
+public class CarControlV1 : MonoBehaviour
 {
+    #region Variables
+
     [Header("Move Setting")]
-
-    public float lateralForce = 300f;
-
-    public float maxLateralSpeed = 5f;
-
-    public float tiltMultiplier = 5f;
-
-    public float rotationSpeed = 1.5f;
-    
+    [SerializeField] private float lateralForce = 300f;
+    [SerializeField] private float maxLateralSpeed = 5f;
+    [SerializeField] private float tiltMultiplier = 5f;
+    [SerializeField] private float rotationSpeed = 1.5f;
+    [SerializeField] private float moveSpeed;
     private Rigidbody rb;
+
+    #endregion
+
 
     void Start()
     {
@@ -21,9 +23,13 @@ public class CarControllV1 : MonoBehaviour
         rb.freezeRotation = true;
     }
 
+    private void Update()
+    {
+        rb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
+    }
+
     void FixedUpdate()
     {
-
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, 0);
 
 
@@ -56,7 +62,10 @@ public class CarControllV1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Hit Something
-
+        Debug.Log($"I hit {collision.gameObject.name}");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"I hit {other.gameObject.name}");
     }
 }

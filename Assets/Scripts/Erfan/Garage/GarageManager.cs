@@ -76,7 +76,6 @@ public class GarageManager : MonoBehaviour
     {
         if (!handRota)
         {
-            print(speedRotate);
             rotatePanel.transform.Rotate(0,speedRotate*Time.deltaTime,0);
         }
     }

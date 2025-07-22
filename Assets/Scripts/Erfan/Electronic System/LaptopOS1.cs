@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 
@@ -9,6 +11,7 @@ public class LaptopOS1 : MonoBehaviour
 
     [Header("Color System")]
     [SerializeField] private Light[] colorOfDesk;
+    [SerializeField] private Slider setIntensity;
     #endregion
 
     #region Buttons
@@ -34,6 +37,14 @@ public class LaptopOS1 : MonoBehaviour
             }
 
             //light1.intensity = 0.35f;
+        }
+    }
+
+    public void ChangeIntensity()
+    {
+        foreach (var light1 in colorOfDesk)
+        {
+            light1.intensity = setIntensity.value;
         }
     }
     #endregion

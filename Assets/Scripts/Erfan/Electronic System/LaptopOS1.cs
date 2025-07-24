@@ -21,23 +21,13 @@ public class LaptopOS1 : MonoBehaviour
     [SerializeField] private string codeSaveMusic;
     
     [Header("PowerSystem")]
-    [SerializeField] private MeshRenderer meshRenderers;
-    [SerializeField] private Material materialOn;
-    [SerializeField] private Material materialOff;
-    [SerializeField] private GameObject materialOnScreen;
+    [SerializeField] private MeshRenderer[] meshRenderers;
+    [SerializeField] private Material[] materialOn;
+    [SerializeField] private Material[]  materialOff;
+    [SerializeField] private GameObject[] materialOnScreen;
+    [SerializeField] private int[] materialWorkOn;
     private Material[] materials;
     
-    [Header("PowerSystem Tv")]
-    [SerializeField] private MeshRenderer meshRenderersTv;
-    [SerializeField] private Material materialOnTv;
-    [SerializeField] private Material materialOffTv;
-    private Material[] materialsTv;
-    
-    [Header("PowerSystem Tv2")]
-    [SerializeField] private MeshRenderer meshRenderersTv2;
-    [SerializeField] private Material materialOnTv2;
-    [SerializeField] private Material materialOffTv2;
-    private Material[] materialsTv2;
     
     #endregion
 
@@ -46,10 +36,11 @@ public class LaptopOS1 : MonoBehaviour
     private void Start()
     {
         LoadData();
-        materials = meshRenderers.materials;
-        materialsTv = meshRenderersTv.materials;
-        TurnOffLaptop();
-        TurnOffTv();
+        for (int i = 0; i < materialWorkOn.Length; i++)
+        {
+            TurnOff(i);
+        }
+
     }
 
     #endregion
@@ -88,33 +79,22 @@ public class LaptopOS1 : MonoBehaviour
         
         SaveData(codeSaveIntensity,setIntensity.value);
     }
+    
+    public void TurnOn(int code)
+    {
+        materials = meshRenderers[code].materials;
+        materials[materialWorkOn[code]] = materialOn[code];
+        meshRenderers[code].materials = materials;
+        materialOnScreen[code].SetActive(true);
+    }
 
-    public void TurnOnLaptop()
+    public void TurnOff(int code)
     {
-        materials[8] = materialOn;
-        meshRenderers.materials = materials;
-        materialOnScreen.gameObject.SetActive(true);
-    }
-    
-    
-
-    public void TurnOffLaptop()
-    {
-        materials[8] = materialOff;
-        meshRenderers.materials = materials;
-        materialOnScreen.gameObject.SetActive(false);
-    }
-    
-    public void TurnOnTv()
-    {
-        materialsTv[0] = materialOnTv;
-        meshRenderersTv.materials = materialsTv;
-    }
-    
-    public void TurnOffTv()
-    {
-        materialsTv[0] = materialOffTv;
-        meshRenderersTv.materials = materialsTv;
+        materials = meshRenderers[code].materials;
+        print(materialWorkOn[code]);
+        materials[materialWorkOn[code]] = materialOff[code];
+        meshRenderers[code].materials = materials;
+        materialOnScreen[code].SetActive(false);
     }
     
     

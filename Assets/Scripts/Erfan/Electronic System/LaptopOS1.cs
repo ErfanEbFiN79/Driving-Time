@@ -91,7 +91,6 @@ public class LaptopOS1 : MonoBehaviour
     public void TurnOff(int code)
     {
         materials = meshRenderers[code].materials;
-        print(materialWorkOn[code]);
         materials[materialWorkOn[code]] = materialOff[code];
         meshRenderers[code].materials = materials;
         materialOnScreen[code].SetActive(false);

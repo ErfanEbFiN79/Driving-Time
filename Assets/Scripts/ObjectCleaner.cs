@@ -10,9 +10,9 @@ public class ObjectCleaner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        foreach(string t in tagsToDiactivate)
+      foreach(string t in tagsToDiactivate)
         {
-            if (other.CompareTag(t))
+            if (t == other.tag)
             {
                 other.gameObject.SetActive(false);
                 return;
@@ -25,7 +25,7 @@ public class ObjectCleaner : MonoBehaviour
     {
         foreach (string t in tagsToDiactivate)
         {
-            if (collision.gameObject.CompareTag(t))
+            if (t == collision.gameObject.tag)
             {
                 collision.gameObject.SetActive(false);
                 return;

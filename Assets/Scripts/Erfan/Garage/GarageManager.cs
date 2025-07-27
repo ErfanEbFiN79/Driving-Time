@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 public class GarageManager : MonoBehaviour
@@ -28,9 +29,16 @@ public class GarageManager : MonoBehaviour
     [SerializeField] private TMP_Text textCar;
     private int _carSelector;
     // shaere info
-    
+    [Header("Save Data Info")]
+    // Add by member 2
+    [SerializeField] SessionDataSObase sessionData;
+    [SerializeField] UnlockablesData_01[] unlockablesArray;
+    [SerializeField] List<UnlockablesData_01> carlist, skyboxlist;
+    [SerializeField] ulong playerRecord;
+    [SerializeField] UnlockablesData_01[] unlockablesarray;
 
-    
+    [Header("VIP Manager")] 
+    [SerializeField] private bool vip; //Need Change After
     
     #endregion
 
@@ -38,13 +46,37 @@ public class GarageManager : MonoBehaviour
 
     private void Awake()
     {
+        carlist = new List<UnlockablesData_01>();
         instance = this;
     }
 
     private void Start()
     {
+        if (unlockablesarray.Length > 0)
+        {
+            foreach (UnlockablesData_01 item in unlockablesarray)
+            {
+                switch (item.type)
+                {
+                    case UnlockableType.car:
+                    {
+                        carlist.Add(item);
+                        break;
+                    }
+                    case UnlockableType.level:
+                    {
+                        break;
+                    }
+
+                    case UnlockableType.skybox:
+                    {
+                        skyboxlist.Add(item);
+                        break;
+                    }
+                }
+            }
+        }
         LoadData();
-        print(_carSelector);
         ManageCarSelector();
         ManageUi();
     }
@@ -114,7 +146,7 @@ public class GarageManager : MonoBehaviour
     private void GoChangeCarAction()
     {
         _carSelector++;
-        if (_carSelector > cars.Length )
+        if (_carSelector >= cars.Length )
         {
             _carSelector = cars.Length;
         }
@@ -122,6 +154,7 @@ public class GarageManager : MonoBehaviour
         SaveData();
         LoadData();
         ManageUi();
+        
     }
     
     private void BackChangeCarAction()
@@ -157,6 +190,8 @@ public class GarageManager : MonoBehaviour
                 cars[i].SetActive(true);
             }
         }
+        
+        ChoseTheCar();
     }
 
     private void ManageUi()
@@ -177,8 +212,32 @@ public class GarageManager : MonoBehaviour
 
     private void LoadData()
     {
+
         speedRotate = PlayerPrefs.GetInt(nameGarage + "LevelRotate");
         _carSelector = PlayerPrefs.GetInt(nameGarage + "CarCount");
+    }
+    
+    private void ChoseTheCar()
+    {
+        print(carlist[_carSelector].name);
+        if (!carlist[_carSelector].needVip)
+        {
+            if((ulong)carlist[_carSelector].minimumLevelToUnlock > playerRecord)
+            {
+                //TODO: Active Lock Button
+                Debug.Log(" you can not chose this car \n low level problem");
+            }
+            else
+            {
+                sessionData.codeCar = carlist[_carSelector].unlockableObjectCode;
+            }
+        }
+        else
+        {
+            //TODO: Active Lock Button
+            Debug.Log("You Need buy vip");
+        }
+
     }
     #endregion
     

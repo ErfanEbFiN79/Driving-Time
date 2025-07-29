@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [Serializable]
@@ -95,6 +96,13 @@ public class LaptopOS1 : MonoBehaviour
         meshRenderers[code].materials = materials;
         materialOnScreen[code].SetActive(false);
     }
+
+    public void ChangeScene(string nameScene)
+    {
+        SceneManager.LoadScene(nameScene);
+    }
+    
+    
     
     
     #endregion

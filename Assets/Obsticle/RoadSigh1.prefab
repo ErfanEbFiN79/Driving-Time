@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7048414215811744741}
   - component: {fileID: 4778336104326532271}
   - component: {fileID: 2667063758537156085}
+  - component: {fileID: 3503903119000204142}
   m_Layer: 0
   m_Name: RoadSigh1
-  m_TagString: Untagged
+  m_TagString: Deleted
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3503903119000204142
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283307030201691183}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009937919, y: 0.005335789, z: 0.010318643}
+  m_Center: {x: -0.000016376376, y: -0.000003648339, z: 0.0051327604}

@@ -43,7 +43,7 @@ public class ObsSpawner : MonoBehaviour
     {
         if (other.CompareTag(spawnpointTag)&& attackedToSection)
         {
-            if (Random.Range(0f, 1f) > 0.5f)
+            if (Random.Range(0f, 1f) > 0.9f)
             {
                 return;
             }

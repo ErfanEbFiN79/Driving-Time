@@ -12,6 +12,7 @@ public class UnlockablesData_01 : ScriptableObject
     public int unlockableObjectCode;
     public Skybox skybox;
     public bool needVip;
+    public int codeLevel;
 }
 
 //[System.Serializable]

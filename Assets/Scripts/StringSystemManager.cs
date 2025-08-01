@@ -8,7 +8,7 @@ public class StringSystemManager : MonoBehaviour
     #region constant strings
     [Space]
     [Header("strings constance")]
-    public  string DistanceLoadSaveString="DistanceLoadSave";
+    public  string[] DistanceLoadSaveString;
     #endregion
 
 

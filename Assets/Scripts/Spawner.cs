@@ -18,26 +18,6 @@ public class Spawner : MonoBehaviour
     {
         if (other.CompareTag("Midsection"))
         {
-            print("midsection");
-            if (previusSection != null)
-            {
-                previusSection.SetActive(false);
-                
-            }
-           
-            //previusSection = other.transform.parent.gameObject;
-            previusSection = other.transform.gameObject;
-            GameObject temp = ObjectPooler.currentInstance.GiveMeASection();
-            temp.transform.position = new Vector3(0, other.transform.parent.position.y - 0.01f, other.transform.position.z + OffSet + SectionLenght);
-            temp.transform.rotation = Quaternion.identity;
-        }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Midsection"))
-        {
-            print("midsection");
             if (previusSection != null)
             {
                 previusSection.SetActive(false);
@@ -46,6 +26,7 @@ public class Spawner : MonoBehaviour
            
             previusSection = other.transform.parent.gameObject;
             GameObject temp = ObjectPooler.currentInstance.GiveMeASection();
+            print($"pre : {previusSection.name} other : {other.transform.parent.name}");
             temp.transform.position = new Vector3(0, other.transform.parent.position.y - 0.01f, other.transform.position.z + OffSet + SectionLenght);
             temp.transform.rotation = Quaternion.identity;
         }

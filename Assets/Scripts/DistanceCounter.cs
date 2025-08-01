@@ -9,6 +9,7 @@ public class DistanceCounter : MonoBehaviour
     [SerializeField] ulong  longestRunCurrent;
     [SerializeField] ulong  longestRunRecord;
     [SerializeField] float intervalsBetweenCheck = 10f;
+    [SerializeField] private int codeOfLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class DistanceCounter : MonoBehaviour
         InvokeRepeating(nameof(CheckDistance), 1f, intervalsBetweenCheck);
         if (StringSystemManager.currentInstance != null)
         {
-            string bestRunstring = PlayerPrefs.GetString(StringSystemManager.currentInstance.DistanceLoadSaveString, "0");
+            string bestRunstring = PlayerPrefs.GetString(StringSystemManager.currentInstance.DistanceLoadSaveString[codeOfLevel], "0");
             if (ulong.TryParse(bestRunstring, out longestRunRecord))
             {
                 Debug.Log("load succesfully"+ "best Run was : "+longestRunRecord);
@@ -65,7 +66,7 @@ public class DistanceCounter : MonoBehaviour
         }
         if (StringSystemManager.currentInstance != null)
         {
-            PlayerPrefs.SetString(StringSystemManager.currentInstance.DistanceLoadSaveString, longestRunRecord.ToString());
+            PlayerPrefs.SetString(StringSystemManager.currentInstance.DistanceLoadSaveString[codeOfLevel], longestRunRecord.ToString());
             PlayerPrefs.Save();
 
         }

@@ -58,13 +58,13 @@ public class ChosingCarMenu : MonoBehaviour
         }
         // loading player record data
         // needs string manager in the scene
-        string temp = PlayerPrefs.GetString(StringSystemManager.currentInstance.DistanceLoadSaveString, "0");
-
-        if (ulong.TryParse(temp, out playerRecord)) Debug.Log("load player record successuly<<<<<<<<<"+playerRecord);
-        else
-        {
-            Debug.Log("loading player record encounter error");
-        }
+        // string temp = PlayerPrefs.GetString(StringSystemManager.currentInstance.DistanceLoadSaveString, "0");
+        //
+        // if (ulong.TryParse(temp, out playerRecord)) Debug.Log("load player record successuly<<<<<<<<<"+playerRecord);
+        // else
+        // {
+        //     Debug.Log("loading player record encounter error");
+        // }
     }
     
 

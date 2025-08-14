@@ -59,13 +59,9 @@ public class CarControlV1 : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(0, transform.eulerAngles.y, tiltAngle);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
     }
-
-    private void OnCollisionEnter(Collision collision)
+    
+    public void PlayerHasDied()
     {
-        Debug.Log($"I hit {collision.gameObject.name}");
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log($"I hit {other.gameObject.name}");
+        print("Player Die");
     }
 }

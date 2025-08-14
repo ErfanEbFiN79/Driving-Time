@@ -10,6 +10,7 @@ public class AudioManager_01 : MonoBehaviour
     [SerializeField] bool isplaying1;
     public static AudioManager_01 currentInstaance;
     [SerializeField] float fadeBetweenTime = 5f;
+    private int _codeMusicPlay;
 
 
     private void Awake()
@@ -33,46 +34,72 @@ public class AudioManager_01 : MonoBehaviour
 
 
     }
-
+    
     private void Start()
     {
         if (BGMusicArray.Length > 1)
         {
-            auidionTrack01.clip = BGMusicArray[0];
+            _codeMusicPlay = PlayerPrefs.GetInt("MusicCode");
+            auidionTrack01.clip = BGMusicArray[_codeMusicPlay];
             auidionTrack01.Play();
             isplaying1 = true;
         }
     }
 
-    private void Update()
+    public void NextMusic()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        print(_codeMusicPlay);
+        if (_codeMusicPlay < BGMusicArray.Length - 1)
         {
-            Swap();
+            _codeMusicPlay++;
+            audioTrack02.clip= BGMusicArray[_codeMusicPlay];
+            audioTrack02.Play();
+            auidionTrack01.Stop();
+            SaveData();
         }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            StopCoroutine(nameof(SwapWithFading));
 
-            StartCoroutine(nameof(SwapWithFading));
+    }
+
+    public void PreviousMusic()
+    {
+        print(_codeMusicPlay);
+        if (_codeMusicPlay > 0)
+        {
+            _codeMusicPlay--;
+            audioTrack02.clip= BGMusicArray[_codeMusicPlay];
+            audioTrack02.Play();
+            auidionTrack01.Stop();
+            SaveData();
         }
     }
-    public void Swap()
+    
+    
+    public void SwapButton()
     {
         if (isplaying1)
         {
             //int nextIndex = choseNextClip();
-            audioTrack02.clip = BGMusicArray[choseNextClip()];
+            _codeMusicPlay = choseNextClip();
+            audioTrack02.clip = BGMusicArray[_codeMusicPlay];
             audioTrack02.Play();
             auidionTrack01.Stop();
+            SaveData();
         }
         else
         {
-            auidionTrack01.clip = BGMusicArray[choseNextClip()];
+            _codeMusicPlay = choseNextClip();
+            audioTrack02.clip = BGMusicArray[_codeMusicPlay];
             audioTrack02.Stop();
             auidionTrack01.Play();
+            SaveData();
         }
         isplaying1 = !isplaying1;
+    }
+    
+    public void SwapWithFadingButton()
+    {
+        StopCoroutine(nameof(SwapWithFading));
+        StartCoroutine(nameof(SwapWithFading));
     }
 
     public int choseNextClip()
@@ -124,4 +151,10 @@ public class AudioManager_01 : MonoBehaviour
         }
         yield return null;
     }
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt("MusicCode", _codeMusicPlay);
+    }
+    
 }

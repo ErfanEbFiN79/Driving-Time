@@ -970,7 +970,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceLoadSaveString:
-  - DistancePlayer
+  - DistancePlayerLevel1
+  - DistancePlayerLevel2
+  - DistancePlayerLevel3
+  - DistancePlayerLevel4
 --- !u!4 &767611627
 Transform:
   m_ObjectHideFlags: 0
@@ -2154,7 +2157,7 @@ MonoBehaviour:
   longestRunCurrent: 0
   longestRunRecord: 0
   intervalsBetweenCheck: 10
-  codeOfLevel: 0
+  codeOfLevel: 3
 --- !u!4 &1445284103
 Transform:
   m_ObjectHideFlags: 0
@@ -2953,7 +2956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currenthealth: 0
   maxHealth: 3
-  damageAmount: 0
+  damageAmount: 1
   takenDamageEvent:
     m_PersistentCalls:
       m_Calls: []

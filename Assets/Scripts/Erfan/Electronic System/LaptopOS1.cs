@@ -10,6 +10,9 @@ public class LaptopOS1 : MonoBehaviour
 {
     #region Variables
 
+    [Header("Base Setting")] 
+    [SerializeField] private GameObject[] ourPanels;
+    
     [Header("Color System")]
     [SerializeField] private Light[] colorOfDesk;
     [SerializeField] private string codeSaveColorDesk;
@@ -28,8 +31,9 @@ public class LaptopOS1 : MonoBehaviour
     [SerializeField] private GameObject[] materialOnScreen;
     [SerializeField] private int[] materialWorkOn;
     private Material[] materials;
-    
-    
+
+
+    private int codeActive;
     #endregion
 
     #region Unity Functions
@@ -101,8 +105,17 @@ public class LaptopOS1 : MonoBehaviour
     {
         SceneManager.LoadScene(nameScene);
     }
-    
-    
+
+    public void TurnOffOtherPanel(int code)
+    {
+        for (int i = 0; i < ourPanels.Length; i++)
+        {
+            if (i != code)
+            {
+                ourPanels[i].SetActive(false);
+            }
+        }
+    }
     
     
     #endregion

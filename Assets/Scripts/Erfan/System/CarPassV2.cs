@@ -23,6 +23,7 @@ public class CarPassV2 : MonoBehaviour
     {
         GetActiveMissions();
         LoadUi();
+        CheckDone();
     } 
 
     #endregion
@@ -45,13 +46,7 @@ public class CarPassV2 : MonoBehaviour
         }
     }
 
-    private void LoadUi()
-    {
-        for (int i = 0; i < missionText.Length; i++)
-        {
-            missionText[i].text = missionsAreActive[i].description;
-        }
-    }
+
 
     private void CheckDone()
     {
@@ -60,11 +55,34 @@ public class CarPassV2 : MonoBehaviour
             if (PlayerPrefs.GetInt(mission2.codeNeedCheck) == 1)
             {
                 mission2.isDone = true;
-                
+                UiWork();
             }
         }
     }
     
+    #endregion
+
+    #region Ui
+
+    private void LoadUi()
+    {
+        for (int i = 0; i < missionText.Length; i++)
+        {
+            missionText[i].text = missionsAreActive[i].description;
+        }
+    }
+    
+    private void UiWork()
+    {
+        for (int i = 0; i < missionsAreActive.Length; i++)
+        {
+            if (missionsAreActive[i].isDone)
+            {
+                missionText[i].color = Color.red;
+            }
+        }
+    }
+
     #endregion
     
     

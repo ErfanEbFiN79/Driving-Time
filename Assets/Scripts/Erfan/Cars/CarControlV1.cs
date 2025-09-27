@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class CarControlV1 : MonoBehaviour
@@ -12,6 +13,11 @@ public class CarControlV1 : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1.5f;
     [SerializeField] private float moveSpeed;
     private Rigidbody rb;
+    
+    [Header("Ui Controller")]
+    [SerializeField] private TMP_Text speedCarText;
+
+    private float ride;
 
     #endregion
 
@@ -26,6 +32,8 @@ public class CarControlV1 : MonoBehaviour
     private void Update()
     {
         rb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
+        UiManager();
+        DifficultySystem();
     }
 
     void FixedUpdate()
@@ -63,5 +71,15 @@ public class CarControlV1 : MonoBehaviour
     public void PlayerHasDied()
     {
         print("Player Die");
+    }
+
+    private void DifficultySystem()
+    {   
+        moveSpeed += Time.deltaTime / 10;
+    }
+
+    private void UiManager()
+    {
+        speedCarText.text = moveSpeed.ToString("F1");
     }
 }

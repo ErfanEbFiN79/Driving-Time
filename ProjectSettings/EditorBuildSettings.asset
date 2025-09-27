@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Garage2.unity
     guid: 6bab1d5c152e99d449eef226ed8079c6
   - enabled: 1
-    path: Assets/Scenes/Road1.unity
+    path: Assets/Scenes/Road1-3.unity
     guid: 9783239dfc72b5f41a64509a6d6a6782
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,

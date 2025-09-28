@@ -1732,6 +1732,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1016443846811919589, guid: 6506c1329e8c03f4bbe37874e5061ff9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016443846811919589, guid: 6506c1329e8c03f4bbe37874e5061ff9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2053910415524370661, guid: 6506c1329e8c03f4bbe37874e5061ff9,
         type: 3}
       propertyPath: healthBarCode
@@ -1751,6 +1761,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692969123564934007, guid: 6506c1329e8c03f4bbe37874e5061ff9,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692969123564934007, guid: 6506c1329e8c03f4bbe37874e5061ff9,
+        type: 3}
+      propertyPath: maxLateralSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692969123564934007, guid: 6506c1329e8c03f4bbe37874e5061ff9,
+        type: 3}
+      propertyPath: moreRotateSpeed
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6386871184545998386, guid: 6506c1329e8c03f4bbe37874e5061ff9,
         type: 3}
@@ -5208,6 +5233,7 @@ MonoBehaviour:
   tiltMultiplier: 1
   rotationSpeed: 5
   moveSpeed: 20
+  moreRotateSpeed: 0
   speedCarText: {fileID: 0}
 --- !u!114 &8493816047915575512
 MonoBehaviour:

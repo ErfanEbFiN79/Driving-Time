@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Road1-3.unity
     guid: 9783239dfc72b5f41a64509a6d6a6782
+  - enabled: 1
+    path: Assets/Scenes/Road1.unity
+    guid: 195f390815ea11243806a8698fbaac82
+  - enabled: 1
+    path: Assets/Scenes/Road1-4.unity
+    guid: 5c9aa88c6a6e400419c664a950f4a005
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: 6c8289b4c3f6d8e44b4ffd7646439171, type: 2}

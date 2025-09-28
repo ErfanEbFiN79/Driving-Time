@@ -52,7 +52,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.CompareTag("Deleted"))
         {
-            print("we detect the damage");
             //GetComponent<Rigidbody>().AddForce(Vector3.down*backwardForce,ForceMode.Impulse);
             TakenDamage();
             other.gameObject.SetActive(false);
@@ -62,7 +61,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Deleted"))
         {
-            print("we detect the damage");
             TakenDamage();
             collision.gameObject.SetActive(false);
         }

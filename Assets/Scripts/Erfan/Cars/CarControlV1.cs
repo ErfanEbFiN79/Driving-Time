@@ -12,6 +12,7 @@ public class CarControlV1 : MonoBehaviour
     [SerializeField] private float tiltMultiplier = 5f;
     [SerializeField] private float rotationSpeed = 1.5f;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float moreRotateSpeed;
     private Rigidbody rb;
     
     [Header("Ui Controller")]
@@ -50,9 +51,9 @@ public class CarControlV1 : MonoBehaviour
             if(touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {
                 if(touch.position.x < Screen.width / 2)
-                    horizontalInput = -1f;
+                    horizontalInput = (-1 * moreRotateSpeed) * Time.deltaTime;
                 else if(touch.position.x > Screen.width / 2)
-                    horizontalInput = 1f;
+                    horizontalInput = (1 * moreRotateSpeed) * Time.deltaTime;
             }
         }
 

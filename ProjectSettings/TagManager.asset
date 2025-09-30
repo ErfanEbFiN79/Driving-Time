@@ -8,6 +8,8 @@ TagManager:
   - spawnpoint
   - Deleted
   - Slider
+  - Creator
+  - Road
   layers:
   - Default
   - TransparentFX

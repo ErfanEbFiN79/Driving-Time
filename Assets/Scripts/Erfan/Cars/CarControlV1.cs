@@ -32,9 +32,9 @@ public class CarControlV1 : MonoBehaviour
 
     private void Update()
     {
-        rb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
+        // rb.AddForce(Vector3.forward * moveSpeed, ForceMode.Impulse);
         UiManager();
-        DifficultySystem();
+        // DifficultySystem();
     }
 
     void FixedUpdate()

@@ -5933,7 +5933,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6386871184545998386}
-  - component: {fileID: 4327786182906119158}
   - component: {fileID: 2108011051522766945}
   - component: {fileID: 3692969123564934007}
   - component: {fileID: 2053910415524370661}
@@ -5965,33 +5964,6 @@ Transform:
   - {fileID: 3533178492531430069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0.189, z: 0}
---- !u!54 &4327786182906119158
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2731974882297936834}
-  serializedVersion: 4
-  m_Mass: 2
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 4
-  m_CollisionDetection: 0
 --- !u!65 &2108011051522766945
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6030,6 +6002,7 @@ MonoBehaviour:
   tiltMultiplier: 1
   rotationSpeed: 5
   moveSpeed: 50
+  moreRotateSpeed: 0
   speedCarText: {fileID: 1348695240925023428}
 --- !u!114 &2053910415524370661
 MonoBehaviour:

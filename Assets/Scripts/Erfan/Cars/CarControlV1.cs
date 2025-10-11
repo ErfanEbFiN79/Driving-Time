@@ -81,6 +81,7 @@ public class CarControlV1 : MonoBehaviour
 
     private void UiManager()
     {
-        speedCarText.text = moveSpeed.ToString("F1");
+        
+        speedCarText.text = RoadMoveSystem.FindFirstObjectByType<RoadMoveSystem>().speedRoad.ToString("F1");
     }
 }

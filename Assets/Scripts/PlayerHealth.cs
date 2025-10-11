@@ -50,19 +50,18 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Deleted"))
+        if (other.CompareTag("Obstacle"))
         {
-            //GetComponent<Rigidbody>().AddForce(Vector3.down*backwardForce,ForceMode.Impulse);
             TakenDamage();
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Deleted"))
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
             TakenDamage();
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
         }
     }
 

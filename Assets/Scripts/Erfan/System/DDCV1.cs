@@ -30,6 +30,11 @@ public class DDCV1 : MonoBehaviour
             roadsSystem.CreateRoad();
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("Obstacle"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     #endregion

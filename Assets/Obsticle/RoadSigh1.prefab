@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4778336104326532271}
   - component: {fileID: 2667063758537156085}
   - component: {fileID: 3503903119000204142}
+  - component: {fileID: 1231937834967497385}
   m_Layer: 0
   m_Name: RoadSigh1
   m_TagString: Deleted
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5283307030201691183}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.119, y: -0.18, z: 3.52}
   m_LocalScale: {x: 162.93, y: 162.93, z: 162.93}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &4778336104326532271
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.009937919, y: 0.005335789, z: 0.010318643}
   m_Center: {x: -0.000016376376, y: -0.000003648339, z: 0.0051327604}
+--- !u!114 &1231937834967497385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283307030201691183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b79025677aac748a16732fe55fed74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 1

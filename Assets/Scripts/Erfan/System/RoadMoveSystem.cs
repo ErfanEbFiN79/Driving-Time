@@ -20,7 +20,7 @@ public class RoadMoveSystem : MonoBehaviour
     public void Update()
     {
         
-        distanceOfPlayer = Vector3.Distance(transform.position, player.position);
+        distanceOfPlayer = transform.position.z - player.position.z;
 
         if (distanceDeleteObject > distanceOfPlayer)
         {

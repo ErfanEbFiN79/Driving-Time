@@ -2027,6 +2027,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 773358223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1327770580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327770582}
+  - component: {fileID: 1327770581}
+  m_Layer: 0
+  m_Name: '[Game Difficulty Manager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1327770581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327770580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56671a42a2339c419475badceca94c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSpeedOfGame: 40
+  timeIncreaseSpeed: 2
+  startSpeedOfCreateBlocks: 1
+  timeIncreaseCreateBlocks: 1
+--- !u!4 &1327770582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327770580}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.637358, y: 0.9781678, z: -0.3202511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364726215
 GameObject:
   m_ObjectHideFlags: 0
@@ -6745,6 +6793,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8626474762312658998, guid: 9a3c6a9640865de48b37175eed2536eb,
+        type: 3}
+      propertyPath: distanceDeleteObject
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6820,3 +6873,4 @@ SceneRoots:
   - {fileID: 1207424807}
   - {fileID: 1364726216}
   - {fileID: 2048546844}
+  - {fileID: 1327770582}

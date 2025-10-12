@@ -21,6 +21,7 @@ public class ObjectSpawnerSystem : MonoBehaviour
 
     private void Start()
     {
+        spawnDelay = FindFirstObjectByType<GameDifficultyManagerV1>().SpeedOfCreateBlocks;
         InvokeRepeating(nameof(Spawn), 0, spawnDelay);
     }
 
@@ -30,6 +31,7 @@ public class ObjectSpawnerSystem : MonoBehaviour
 
     private void Spawn()
     {
+        spawnDelay = FindFirstObjectByType<GameDifficultyManagerV1>().SpeedOfCreateBlocks;
         int selectNumber = RandomNumber(0, spawnedObjects.Length);
         GameObject spawnedObject = spawnedObjects[selectNumber];
         if (!workWithSides)

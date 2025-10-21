@@ -15,6 +15,10 @@ public class GameDifficultyManagerV1 : MonoBehaviour
     [Header("Manage Speed Of Create Blocks")]
     [SerializeField] private float startSpeedOfCreateBlocks;
     [SerializeField] private float timeIncreaseCreateBlocks;
+
+
+    [Header("Add More Speed Manage")] 
+    [SerializeField] private float[] speedGoNextStage;
     
     #endregion
 
@@ -38,7 +42,22 @@ public class GameDifficultyManagerV1 : MonoBehaviour
 
     private void ManageSpeedOfGame()
     {
-        SpeedOfGame += (Time.deltaTime) / 10;
+        if (SpeedOfGame > speedGoNextStage[0])
+        {
+            
+        }
+        else if (SpeedOfGame > speedGoNextStage[1])
+        {
+            
+        }
+        else if (SpeedOfGame > speedGoNextStage[2])
+        {
+            
+        }
+        else
+        {
+            SpeedOfGame += (Time.deltaTime) / 10;
+        }
     }
 
     private void ManageSpeedOfCreateBlocks()

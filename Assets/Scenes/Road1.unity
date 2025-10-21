@@ -2262,6 +2262,7 @@ MonoBehaviour:
   timeIncreaseSpeed: 2
   startSpeedOfCreateBlocks: 1
   timeIncreaseCreateBlocks: 1
+  speedGoNextStage: []
 --- !u!4 &1327770582
 Transform:
   m_ObjectHideFlags: 0

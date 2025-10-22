@@ -23,6 +23,13 @@ public class LaptopOS1 : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioClip[] musics;
     [SerializeField] private string codeSaveMusic;
+
+    [Header("Social Media")]
+    [SerializeField] private Chat[] chats;
+    [SerializeField] private GameObject socialPanel;
+    
+    
+    [Header("Social Media App")]
     
     [Header("PowerSystem")]
     [SerializeField] private MeshRenderer[] meshRenderers;
@@ -31,8 +38,7 @@ public class LaptopOS1 : MonoBehaviour
     [SerializeField] private GameObject[] materialOnScreen;
     [SerializeField] private int[] materialWorkOn;
     private Material[] materials;
-
-
+    
     private int codeActive;
     #endregion
 

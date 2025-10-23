@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 [Serializable]
 
@@ -27,9 +28,7 @@ public class LaptopOS1 : MonoBehaviour
     [Header("Social Media")]
     [SerializeField] private Chat[] chats;
     [SerializeField] private GameObject socialPanel;
-    
-    
-    [Header("Social Media App")]
+    [SerializeField] private Transform pointCreateChats;
     
     [Header("PowerSystem")]
     [SerializeField] private MeshRenderer[] meshRenderers;
@@ -116,6 +115,11 @@ public class LaptopOS1 : MonoBehaviour
     {
         for (int i = 0; i < ourPanels.Length; i++)
         {
+            if (code == 2)
+            {
+                ManageChats();
+            }
+            
             if (i != code)
             {
                 ourPanels[i].SetActive(false);
@@ -143,7 +147,23 @@ public class LaptopOS1 : MonoBehaviour
         {
             PlayerPrefs.SetFloat(code, value);
         }
+        
+    }
 
+    private void ManageChats()
+    {
+        //TODO: We need get level and do base of it
+        //TODO: Create a system can add new when we are at chat app
+
+        int y = 140;
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject ch = Instantiate(socialPanel,pointCreateChats.position,Quaternion.identity,pointCreateChats);
+            ch.GetComponent<ChatManagerV1>().chat = chats[Random.Range(0, chats.Length)];
+            ch.transform.localRotation = new Quaternion(0,0,0,0);
+            ch.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, y);
+            y -= 15;
+        }
     }
 
     private void LoadData()

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   writer: "\u0645\u0644\u06CC\u06A9\u0627"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f890240861409964ebda0f4798f48a0b, type: 3}
   writerId: 796845
   note: "\u0628\u0631\u0627\u06CC \u0634\u0631\u0648\u0639 \u0645\u0627\u0634\u06CC\u0646
     \u062E\u0648\u0628\u06CC\u0647 \u0648\u0644\u06CC \u0628\u0627\u06CC\u062F \u0628\u0647

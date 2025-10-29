@@ -6,6 +6,14 @@ public class CarControlV1 : MonoBehaviour
 {
     #region Variables
 
+    public enum StateOfCar
+    {
+        Move,
+        Die,
+    }
+
+    public StateOfCar stateOfCar { get; private set; }
+    
     [Header("Move Setting")]
     [SerializeField] private float lateralForce = 300f;
     [SerializeField] private float maxLateralSpeed = 5f;
@@ -72,6 +80,7 @@ public class CarControlV1 : MonoBehaviour
     public void PlayerHasDied()
     {
         print("Player Die");
+        stateOfCar = StateOfCar.Die;
     }
 
     private void DifficultySystem()

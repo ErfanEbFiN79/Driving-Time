@@ -44,15 +44,15 @@ public class GameDifficultyManagerV1 : MonoBehaviour
     {
         if (SpeedOfGame > speedGoNextStage[0])
         {
-            
+            SpeedOfGame += (Time.deltaTime) / 10 + 1;
         }
         else if (SpeedOfGame > speedGoNextStage[1])
         {
-            
+            SpeedOfGame += (Time.deltaTime) / 10 + 3;
         }
         else if (SpeedOfGame > speedGoNextStage[2])
         {
-            
+            SpeedOfGame += (Time.deltaTime) / 10 + 5;
         }
         else
         {

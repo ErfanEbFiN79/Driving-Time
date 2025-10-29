@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DistanceCounter : MonoBehaviour
 {
+    [Header("Base")]
     [SerializeField] Transform _playerTransform;
     float lastPositionOnZ, currentPositionOnZ;
     [SerializeField] ulong  longestRunCurrent;
     [SerializeField] ulong  longestRunRecord;
     [SerializeField] float intervalsBetweenCheck = 10f;
     [SerializeField] private int codeOfLevel;
+    
+    [Header("Ui")]
+    [SerializeField] private TMP_Text distanceCounterText;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +59,7 @@ public class DistanceCounter : MonoBehaviour
             lastPositionOnZ = currentPositionOnZ;
         }
         SaveLongestdistanceSoFar();
+        ShowUi();
     }
 
 
@@ -99,5 +105,10 @@ public class DistanceCounter : MonoBehaviour
         currentPositionOnZ = _playerTransform.position.z;
         //InvokeRepeating(nameof(CheckDistance), 0, intervalsBetweenCheck);
         ResumeCheckingdistance();
+    }
+
+    private void ShowUi()
+    {
+        distanceCounterText.text = longestRunCurrent.ToString();
     }
 }

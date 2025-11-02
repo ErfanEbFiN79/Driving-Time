@@ -1591,6 +1591,53 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 100, y: 100, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &881479488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881479489}
+  - component: {fileID: 881479490}
+  m_Layer: 0
+  m_Name: '[Car Activator]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &881479489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881479488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.5963125, y: -6.7758765, z: 2.3047261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &881479490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881479488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c966479e84a7da4a9dca1c6f97cb531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getData: {fileID: 11400000, guid: 64c6c9c448472db40bf939901b6e96ea, type: 2}
+  cars:
+  - {fileID: 1878858536}
 --- !u!1 &923674596
 GameObject:
   m_ObjectHideFlags: 0
@@ -7546,3 +7593,4 @@ SceneRoots:
   - {fileID: 1364726216}
   - {fileID: 2048546844}
   - {fileID: 1327770582}
+  - {fileID: 881479489}

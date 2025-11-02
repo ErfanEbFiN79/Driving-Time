@@ -21,6 +21,9 @@ public class GarageManager : MonoBehaviour
 
     [Header("Info Panel")] 
     [SerializeField] private TMP_Text infoText;
+    // new
+    [SerializeField] private GameObject lockImage;
+    
     public bool panelState {  get; private set; }
     public GameObject panelGet { get; private set; }
 
@@ -146,9 +149,9 @@ public class GarageManager : MonoBehaviour
     private void GoChangeCarAction()
     {
         _carSelector++;
-        if (_carSelector >= cars.Length )
+        if (_carSelector > 14 )
         {
-            _carSelector = cars.Length;
+            _carSelector = 14;
         }
         ManageCarSelector();
         SaveData();
@@ -219,22 +222,27 @@ public class GarageManager : MonoBehaviour
     
     private void ChoseTheCar()
     {
-        print(carlist[_carSelector].name);
+        if (_carSelector > 14)
+        {
+            _carSelector = 14;
+        }
+        
         if (!carlist[_carSelector].needVip)
         {
             if((ulong)carlist[_carSelector].minimumLevelToUnlock > playerRecord)
             {
-                //TODO: Active Lock Button
+                lockImage.SetActive(true);
                 Debug.Log(" you can not chose this car \n low level problem");
             }
             else
             {
+                lockImage.SetActive(false);
                 sessionData.codeCar = carlist[_carSelector].unlockableObjectCode;
             }
         }
         else
         {
-            //TODO: Active Lock Button
+            lockImage.SetActive(true);
             Debug.Log("You Need buy vip");
         }
 

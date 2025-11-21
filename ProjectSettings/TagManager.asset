@@ -11,6 +11,7 @@ TagManager:
   - Creator
   - Road
   - Obstacle
+  - Record
   layers:
   - Default
   - TransparentFX

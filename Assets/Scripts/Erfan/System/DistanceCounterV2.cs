@@ -21,6 +21,7 @@ public class DistanceCounterV2 : MonoBehaviour
 
     private void Start()
     {
+        distanceText = GameObject.FindGameObjectWithTag("Record").GetComponent<TMP_Text>();
         carControl = FindAnyObjectByType<CarControlV1>();
         stringSystem = FindAnyObjectByType<StringSystemManager>();
         bestRecordOfLevel = PlayerPrefs.GetFloat(stringSystem.DistanceLoadSaveString[codeOfLevel]);

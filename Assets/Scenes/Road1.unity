@@ -978,6 +978,8 @@ MonoBehaviour:
   moveSpeed: 0
   moreRotateSpeed: 200
   speedCarText: {fileID: 6017001}
+  moveLimit: 0
+  caseMoveLimit: 0
 --- !u!114 &425658994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,6 +1633,8 @@ MonoBehaviour:
   moveSpeed: 0
   moreRotateSpeed: 200
   speedCarText: {fileID: 799135609}
+  moveLimit: 0
+  caseMoveLimit: 0
 --- !u!114 &549016060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3919,6 +3923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692969123564934007, guid: 6506c1329e8c03f4bbe37874e5061ff9,
         type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692969123564934007, guid: 6506c1329e8c03f4bbe37874e5061ff9,
+        type: 3}
       propertyPath: moveSpeed
       value: 0
       objectReference: {fileID: 0}
@@ -5877,6 +5886,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7849081075718430920, guid: 8ec958b841a0d5443ac0374e46a7225f,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9028387346505564120, guid: 8ec958b841a0d5443ac0374e46a7225f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5994,6 +6008,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1091087312584337447, guid: bdd9d02a01e5869469b4e8b8c475effb,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1442607532688624545, guid: bdd9d02a01e5869469b4e8b8c475effb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6158,6 +6177,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1988574354965555135, guid: 0b97de62e2b932b4f9426bbd024c8e43,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4500179283699174288, guid: 0b97de62e2b932b4f9426bbd024c8e43,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6268,6 +6292,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 133160881933255860, guid: f1fb12bd799d38344bb2ffc97c329284,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2341749629772197006, guid: f1fb12bd799d38344bb2ffc97c329284,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6422,6 +6451,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3637672539697218429, guid: b8a6dfe39b30cb942a4ce886c13d8f98,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8050314790677712251, guid: b8a6dfe39b30cb942a4ce886c13d8f98,
         type: 3}
       propertyPath: m_Name
@@ -6539,6 +6573,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 110430183613539782, guid: a1700dae23c0a17478633a50bde5956f,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 314913955612260632, guid: a1700dae23c0a17478633a50bde5956f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6775,6 +6814,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3406393861479937146, guid: 594b4912e87389a44a15571d1de800e1,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3426870991544345783, guid: 594b4912e87389a44a15571d1de800e1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6899,6 +6943,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 759257295292158974, guid: 14d0b5416d820824989604ce92e336db,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 974517771052486533, guid: 14d0b5416d820824989604ce92e336db,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7194,6 +7243,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 244216682278363866, guid: af9c0981dc6a8bc4ab22a6105603b40f,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1252175402488020560, guid: af9c0981dc6a8bc4ab22a6105603b40f,
         type: 3}
       propertyPath: m_Name
@@ -7925,6 +7979,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6800381077613813919, guid: 79d2a8d2d5cc750499a834b884f655c5,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7050056751758776454, guid: 79d2a8d2d5cc750499a834b884f655c5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -8211,6 +8270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042041361260808794, guid: 841d773b6fe4d5646b68da020a428def,
+        type: 3}
+      propertyPath: moveLimit
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

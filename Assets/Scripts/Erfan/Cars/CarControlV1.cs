@@ -60,6 +60,7 @@ public class CarControlV1 : MonoBehaviour
 
     void FixedUpdate()
     {
+        Limit();
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, 0);
 
 

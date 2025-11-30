@@ -27,6 +27,19 @@ public class CarControlV1 : MonoBehaviour
     [SerializeField] private TMP_Text speedCarText;
 
     private float ride;
+    
+    [Header("Limit Setting")]
+    [SerializeField] private float moveLimit;
+
+    private enum CaseMoveLimit
+    {
+        X,
+        Y,
+        Z
+    }
+    
+    [SerializeField] private CaseMoveLimit caseMoveLimit;
+
 
     #endregion
 
@@ -90,7 +103,69 @@ public class CarControlV1 : MonoBehaviour
 
     private void UiManager()
     {
-        
         speedCarText.text = RoadMoveSystem.FindFirstObjectByType<RoadMoveSystem>().speedRoad.ToString("F1");
+    }
+
+    private void Limit()
+    {
+        switch (caseMoveLimit)
+        {
+            case CaseMoveLimit.X:
+                if (transform.position.x > moveLimit)
+                {
+                    transform.position = new Vector3(
+                        moveLimit,
+                        transform.position.y,
+                        transform.position.z
+                        );
+                }
+                else if (transform.position.x < -moveLimit)
+                {
+                    transform.position = new Vector3(
+                        -moveLimit,
+                        transform.position.y,
+                        transform.position.z
+                    );
+                }
+                break;
+            
+            case CaseMoveLimit.Y:
+                if (transform.position.y > moveLimit)
+                {
+                    transform.position = new Vector3(
+                        transform.position.x,
+                        moveLimit,
+                        transform.position.z
+                    );
+                }
+                else if (transform.position.y < -moveLimit)
+                {
+                    transform.position = new Vector3(
+                        transform.position.x,
+                        -moveLimit,
+                        transform.position.z
+                    );
+                }
+                break;
+            
+            case CaseMoveLimit.Z:
+                if (transform.position.z > moveLimit)
+                {
+                    transform.position = new Vector3(
+                        transform.position.x,
+                        transform.position.y,
+                        moveLimit
+                    );
+                }
+                else if (transform.position.z < -moveLimit)
+                {
+                    transform.position = new Vector3(
+                        -transform.position.x,
+                        transform.position.y,
+                        -moveLimit
+                    );
+                }
+                break;
+        }
     }
 }

@@ -119,6 +119,8 @@ public class CarControlV1 : MonoBehaviour
                         transform.position.y,
                         transform.position.z
                         );
+                    
+                    rb.AddForce(Vector3.right * -10 * lateralForce * Time.fixedDeltaTime);
                 }
                 else if (transform.position.x < -moveLimit)
                 {
@@ -127,6 +129,7 @@ public class CarControlV1 : MonoBehaviour
                         transform.position.y,
                         transform.position.z
                     );
+                    rb.AddForce(Vector3.right * 10 * lateralForce * Time.fixedDeltaTime);
                 }
                 break;
             
